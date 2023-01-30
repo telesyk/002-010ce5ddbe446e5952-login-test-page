@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Reset Password</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="page-reset-form page">
+    <div class="page__background">
+      <div class="page__background-image">
+        <!-- background image -->
+      </div>
+    </div>
+    <div class="page__foreground">
+      <div class="container">
+        <div class="form">
+          <div class="form__logo">
+            <img src="/assets/img/2 Black.png" alt="logotype" loading="lazy" width="345" height="55">
+          </div>
+          <div class="form__header">
+            <h1 class="heading-1">Reset Password</h1>
+          </div>
+          <form action="" class="form__body">
+            <div class="form__group">
+              <label for="" class="form__label">Email Address</label>
+              <div class="form__text">John.m@sunrisescheduling.com</div>
+            </div>
+            <div class="form__group">
+              <label for="password" class="form__label">Password</label>
+              <div class="form__control">
+                <input type="password" required class="form__field" id="password" placeholder="Type your password here" />
+                <span data-control-type="passwordHide" class="icon icon-unhide-Eye"></span>
+              </div>
+              <ul class="form__help-list">
+                <li class="form__help-list__item">Contain at least 8 characters</li>
+                <li class="form__help-list__item">Contain at least one uppercase character</li>
+                <li class="form__help-list__item">Contain at least one lowercase character</li>
+                <li class="form__help-list__item">Contain at least one number</li>
+                <li class="form__help-list__item">Contain at least one special character</li>
+              </ul>
+            </div>
+            <div class="form__group">
+              <label for="confirmPassword" class="form__label">Confirm Password</label>
+              <div class="form__control">
+                <input type="password" required class="form__field" id="confirmPassword" placeholder="Re-type your password here" />
+                <span data-control-type="passwordHide" class="icon icon-unhide-Eye"></span>
+              </div>
+            </div>
+            <div class="form__group">
+              <button type="submit" class="form__control-submit">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- scripts -->
+  <script>
+    const selectors = {
+      dataControlType: '[data-control-type=passwordHide]',
+      fieldInput: 'input',
+      iconHide: 'icon-Hide-Eye',
+      iconUnHide: 'icon-unhide-Eye',
+    };
+    const allPasswordHide = document.querySelectorAll(selectors.dataControlType);
+    allPasswordHide.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        const { target } = e;
+        const parentElement = target.parentElement;
+        const field = parentElement.querySelector('input');
+
+        if (field.type === 'password') {
+          field.setAttribute('type', 'text');
+          trigger.classList.add(selectors.iconHide);
+          trigger.classList.remove(selectors.iconUnHide);
+        } else {
+          field.setAttribute('type', 'password');
+          trigger.classList.add(selectors.iconUnHide);
+          trigger.classList.remove(selectors.iconHide);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

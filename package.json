@@ -1,0 +1,14 @@
+{
+  "name": "test-login-form-010ce5ddbe446e5952",
+  "description": "Include Bootstrap's source Sass and individual JavaScript plugins with Parcel.",
+  "private": true,
+  "scripts": {
+    "start": "parcel serve index.html --public-url / --dist-dir dist",
+    "build": "parcel build index.html --dist-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
